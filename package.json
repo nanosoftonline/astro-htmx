@@ -2,6 +2,7 @@
   "name": "astro-htmx",
   "type": "module",
   "version": "0.0.1",
+  "licence": "ISC",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
