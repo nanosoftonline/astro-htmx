@@ -1,0 +1,33 @@
+---
+import SideNav from "../components/side-nav.astro";
+const { isHTMX = Astro.locals.isHTMX } = Astro.props;
+---
+
+{isHTMX && <slot />}
+{
+    !isHTMX && (
+        <html lang="en">
+            <head>
+                <meta charset="UTF-8" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1.0"
+                />
+
+                <script src="https://unpkg.com/htmx.org@latest" />
+                <script src="https://unpkg.com/hyperscript.org@latest" />
+                <title>HTMX App</title>
+            </head>
+
+            <body class="bg-gray-200">
+                <div class="flex h-screen">
+                    <SideNav />
+
+                    <div class="w-full bg-white" id="main">
+                        <slot />
+                    </div>
+                </div>
+            </body>
+        </html>
+    )
+}
